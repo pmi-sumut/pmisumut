@@ -619,7 +619,7 @@
   height: 100%;
   z-index: 1;
   transition: all 900ms ease;
-  background-color: #000;
+  background-color: #ffffff;
 }
 
 .mobile-menu-visible .mobile-menu .menu-backdrop{
@@ -638,7 +638,7 @@
   height: 100%;
   max-height: 100%;
   overflow-y: auto;
-  background: #141417;
+  background: #ffffff;
   padding: 0px 0px;
   z-index: 5;
   opacity: 0;
@@ -669,7 +669,7 @@
   width: 24px;
   text-align: center;
   font-size: 18px;
-  color: #ffffff;
+  color: #010101;
   cursor: pointer;
   z-index: 10;
 }
@@ -684,15 +684,15 @@
 .mobile-menu .navigation li{
   position: relative;
   display: block;
-  border-top: 1px solid rgba(255,255,255,0.10);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .mobile-menu .navigation:last-child{
-  border-bottom: 1px solid rgba(255,255,255,0.10);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .mobile-menu .navigation li > ul > li:first-child{
-  border-top: 1px solid rgba(255,255,255,0.10);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .mobile-menu .navigation li > a{
@@ -702,7 +702,7 @@
   padding: 10px 25px;
   font-size: 15px;
   font-weight: 500;
-  color: #ffffff;
+  color: #000000;
   text-transform: uppercase;
   -webkit-transition: all 500ms ease;
   -moz-transition: all 500ms ease;
@@ -723,7 +723,7 @@
   left:0;
   top:0;
   height:0;
-  border-left:5px solid #fff;
+  border-left:5px solid #dc3545;
   -webkit-transition: all 500ms ease;
   -moz-transition: all 500ms ease;
   -ms-transition: all 500ms ease;
@@ -744,7 +744,7 @@
   text-align:center;
   font-size:16px;
   line-height:32px;
-  color:#ffffff;
+  color:#000000;
   background:rgba(255,255,255,0.10);
   cursor:pointer;
   border-radius:2px;
@@ -757,7 +757,7 @@
 }
 
 .mobile-menu .navigation li.dropdown .dropdown-btn.open{
-  color: #ffffff;
+  color: #dc3545;
   -webkit-transform:rotate(90deg);
   -ms-transform:rotate(90deg);
   transform:rotate(90deg);  
@@ -784,7 +784,7 @@
   position:relative;
   line-height:32px;
   font-size:16px;
-  color:#ffffff;
+  color:#dc3545;
   -webkit-transition: all 500ms ease;
   -moz-transition: all 500ms ease;
   -ms-transition: all 500ms ease;
@@ -808,7 +808,7 @@ div#mCSB_1_container{
 .mobile-menu .contact-info h4 {
   position: relative;
   font-size: 20px;
-  color: #ffffff;
+  color: #000000;
   font-weight: 700;
   margin-bottom: 20px;
 }
@@ -817,12 +817,12 @@ div#mCSB_1_container{
   position: relative;
   display: block;
   font-size: 15px;
-  color: rgba(255,255,255,0.80);
+  color: rgba(0, 0, 0, 0.8);
   margin-bottom: 3px;
 }
 
 .mobile-menu .contact-info ul li a{
-  color: rgba(255,255,255,0.80);
+  color: rgba(0, 0, 0, 0.8);
 }
 
 .mobile-menu .contact-info ul li a:hover{
