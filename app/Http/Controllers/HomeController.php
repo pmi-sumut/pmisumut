@@ -20,6 +20,7 @@ class HomeController extends Controller
             'service' => Service::all(),
             'agenda' => Agenda::orderby('created_at')->limit(2)->get(),
             'article' => Post::where('status', 'Published')->orderby('published_at', 'desc')->limit(4)->get(),
+            'agenda' => Agenda::orderby('start_date', 'desc')->limit(2)->get(),
             'partner' => Partner::all(),
             'infographic' =>Infographic::all()
         ];

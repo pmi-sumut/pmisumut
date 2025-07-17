@@ -1,7 +1,7 @@
 <section class="subscribe-section pt_45 pb_45">
     <div class="pattern-layer">
-        <div class="pattern-1" style="background-image: url(assets/images/shape/shape-4.png);"></div>
-        <div class="pattern-2" style="background-image: url(assets/images/shape/shape-5.png);"></div>
+        <div class="pattern-1" style="background-image: url('{{ asset('assets/img/shape/shape-4.png') }}');"></div>
+        <div class="pattern-2" style="background-image: url('{{ asset('assets/img/shape/shape-5.png') }}');"></div>
     </div>
     <div class="auto-container">
         <div class="row align-items-center">

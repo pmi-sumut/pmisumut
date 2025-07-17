@@ -591,7 +591,6 @@
   </section>
 
   <section class="feature-style-three pt_120 pb_90 bg-light">
-      <!-- <div class="bg-layer parallax-bg" data-parallax='{"y": 100}' style="background-image: url(assets/images/background/feature-bg-2.jpg);"></div> -->
       <div class="auto-container">
           <div class="row clearfix">
               <div class="col-12">
@@ -770,31 +769,29 @@
                 </div>
               </div>
               <div class="col-lg-4 col-md-12 col-sm-12 inner-column">
-                  <div class="inner-content">
-                      <div class="news-block-three">
-                          <div class="inner-box">
-                              <div>
-                                  <ul class="post-info">
-                                      <li><span class="bg-danger text-white">May 14,2024</span></li>
-                                  </ul>
-                                  <h3><a href="blog-details.html">Stories of medical repatriation from Spain to Ireland</a></h3>
-                                  <div class="link-box"><a href="blog-details.html"><span>Read More</span><i class="icon-39"></i></a></div>
-                              </div>
-                          </div>
+                <div class="inner-content">
+                  @foreach ($agenda as $item)
+                    <div class="news-block-three">
+                      <div class="inner-box">
+                        <div>
+                          <ul class="post-info">
+                            <li>
+                              <span class="bg-danger text-white">
+                              {{ \Carbon\Carbon::parse($item->start_date)->format('d F Y') }} 
+                                @if ($item->end_date)
+                                  - 
+                                  {{ \Carbon\Carbon::parse($item->end_date)->format('d F Y') }}
+                                @endif 
+                              </span>
+                            </li>
+                          </ul>
+                          <h3><a href="blog-details.html">{{ $item->title }}</a></h3>
+                          <div class="link-box"><a href="blog-details.html"><span>Baca Selengkapnya</span><i class="icon-39"></i></a></div>
+                        </div>
                       </div>
-                      <div class="news-block-three">
-                          <div class="inner-box">
-                              <div>
-                                  <ul class="post-info">
-                                      <li><span class="bg-danger text-white">May 14,2024</span></li>
-                                  </ul>
-                                  <h3><a href="blog-details.html">Stories of medical repatriation from Spain to Ireland</a></h3>
-                                  <div class="link-box"><a href="blog-details.html"><span>Read More</span><i class="icon-39"></i></a></div>
-                              </div>
-                          </div>
-                      </div>
-                      
-                  </div>
+                    </div>
+                  @endforeach
+                </div>
               </div>
           </div>
       </div>
