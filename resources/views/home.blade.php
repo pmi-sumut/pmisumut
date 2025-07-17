@@ -6,35 +6,19 @@
 
 @section('content')
   <section class="banner-section p_relative">
-      <div class="banner-carousel owl-theme owl-carousel owl-nav-none">
-          <div class="slide-item p_relative">
-              <div class="bg-layer" style="background-image: url(assets/images/banner/banner-1.jpg);"></div>
-              <div class="auto-container">
-                  <div class="content-box">
-                      <h2>Emergency Medical Services</h2>
-                      <p>These services are designed to reach the scene of an emergency quickly, <br />equipped with advanced medical equipment.</p>
-                  </div>
-              </div>
+    <div class="banner-carousel owl-theme owl-carousel owl-nav-none">
+      @foreach ($slider as $item)
+        <div class="slide-item p_relative">
+          <div class="bg-layer" style="background-image: url('{{ CmsAsset::url($item->image) }}');"></div>
+          <div class="auto-container">
+            <div class="content-box">
+              <h2>{{ $item->title }}</h2>
+              <p>{{ $item->description }}</p>
+            </div>
           </div>
-          <div class="slide-item p_relative">
-              <div class="bg-layer" style="background-image: url(assets/images/banner/banner-2.jpg);"></div>
-              <div class="auto-container">
-                  <div class="content-box">
-                      <h2>Emergency Medical Services</h2>
-                      <p>These services are designed to reach the scene of an emergency quickly, <br />equipped with advanced medical equipment.</p>
-                  </div>
-              </div>
-          </div>
-          <div class="slide-item p_relative">
-              <div class="bg-layer" style="background-image: url(assets/images/banner/banner-3.jpg);"></div>
-              <div class="auto-container">
-                  <div class="content-box">
-                      <h2>Emergency Medical Services</h2>
-                      <p>These services are designed to reach the scene of an emergency quickly, <br />equipped with advanced medical equipment.</p>
-                  </div>
-              </div>
-          </div>
-      </div>
+        </div>
+      @endforeach
+    </div>
   </section>
 
   <section class="about-section pt_120 ">
@@ -43,13 +27,13 @@
               <div class="col-lg-6 col-md-12 col-sm-12 image-column">
                   <div class="image_block_three">
                       <div class="image-box mr_40 pr_70">
-                          <figure class="image"><img src="https://pmisumut.or.id/wp-content/uploads/2019/02/DR.-H.-Rahmat-Shah-1.jpg" alt=""></figure>
+                          <figure class="image"><img src="{{ CmsAsset::url($identities->about_photo) }}" alt=""></figure>
                           <div class="funfact-inner clearfix r_0">
                               <div class="funfact-block">
                                   <div class="count-outer">
-                                    DR. H. Rahmat Shah
+                                    {{ $identities->about_name }}
                                   </div>
-                                  <p>Ketua PMI Provinsi Sumatera Utara</p>
+                                  <p>{{ $identities->about_description }}</p>
                               </div>
                           </div>
                       </div>
@@ -60,7 +44,7 @@
                       <div class="content-box ml_50">
                           <div class="sec-title mb_30">
                               <span class="sub-title mb_12">Tentang Kami</span>
-                              <h2>PMI Provinsi Sumatera Utara</h2>
+                              <h2>{{ $identities->title }}</h2>
                           </div>
                           <div class="tabs-box">
                               <div class="tab-btn-box">
@@ -73,38 +57,17 @@
                               <div class="tabs-content">
                                   <div class="tab" id="tab-1">
                                       <div class="inner-box">
-                                          <p>Pada awal kepengurusan pertama kami pada Juli 2011, kondisi UTD PMI sangatlah memprihatinkan, kekurangan stok darah selalu terjadi dan kondisi gedung markas yang memprihatinkan serta asset PMI yang tidak terdata dan stok barang yang tidak terwat merupakan kondisi nyata saat itu.</p>
-                                          <p>Pada kepengurusan kedua kami saat ini tidak hanya berfokus pada infrastruktur dan UTD, kami juga akan merancang program-program PMI seperti pelatihan-pelatihan, pembinaan PMR, Pengembangan dan pemberdayaan relawan, serta meningkatkan kinerja PMI Sumatera Utara dalam menjalankan kegiatan kemanusiaan di Provinsi Sumatera Utara.</p>
-                                          <p>Saya ucapkan terimakasih kepada para Pengurus maupun staf dan Relawan yang telah bekerja sama dalam mengemban tugas kemanusiaan, marilah kita terus berusaha berbuat yang terbaik yang kita bisa lakukan. Untuk tetap mempertahankan kebersamaan kita, fokus pada tujuan, disiplin, dan tetap bekerja keras. Karena tanpa kebersamaan, apapun yang kita lakukan akan menjadi sia-sia.</p>
-                                          <p>Selanjutnya patut untuk kita hindari suka mengeluh, berdalih, dan saling menyalahkan agar kita dapat mencapai tujuan yang kita inginkan bersama.Saya harap kita semua yang berada disini, kedepannya dapat menjadi pioner pelayanan kemanusiaan sesuai dengan tujuh prinsip Palang Merah dan Bulan Sabit Merah. SIAMOO…</p>
+                                        {!! $identities->welcome_speech !!}
                                       </div>
                                   </div>
                                   <div class="tab  active-tab" id="tab-2">
                                       <div class="inner-box">
-                                        <p class="mb-0 pb-2">Visi: </p>
-                                        <ul class="list-style-one clearfix">
-                                            <li>PMI yang berkarakter, profesional, mandiri dan dicintai masyarakat</li>
-                                        </ul>
-                                        <p class="mb-0 pb-2 mt-3">Misi: </p>
-                                        <ul class="list-style-one clearfix">
-                                          <li>Menjadi organisasi kemanusiaan terdepan yang memberikan layanan berkualitas melalui kerja sama dengan masyarakat dan mitra sesuai dengan prinsip-prinsip dasar Gerakan Palang Merah dan Bulan Sabit Merah.</li>
-                                          <li>Meningkatkan kemandirian organisasi PMI melalui kemitraan strategis yang berkesinambungan dengan pemerintah, swasta, mitra gerakan dan pemangku kepentingan lainnya di semua tingkatan.</li>
-                                          <li>Meningkatkan reputasi organisasi PMI di tingkat Nasional dan Internasional.</li>
-                                        </ul>
+                                        {!! $identities->vision_mission !!}
                                       </div>
                                   </div>
                                   <div class="tab" id="tab-3">
                                       <div class="inner-box">
-                                          <ul class="list-style-one clearfix">
-                                              <li>Mewujudkan PMI yang berfungsi baik di berbagai tingkatan, baik dalam pelaksanaan kebijakan, peraturan organisasi, sistim dan prosedur yang ditetapkan.</li>
-                                              <li>Meningkatkan kapasitas sumber daya organisasi PMI di berbagai tingkatan, baik sumber daya manusia dan sarana prasarana yang diperlukan dalam operasi penanganan bencana di seluruh wilayah Indonesia.</li>
-                                              <li>Meningkatkan ketahanan masyarakat untuk mengurangi risiko dan dampak bencana serta penyakit.</li>
-                                              <li>Meningkatkan pelayanan darah yang memadai, aman dan berkualitas di seluruh Indonesia.</li>
-                                              <li>Memperkuat hubungan kerja sama dengan pemerintah pusat dan daerah dalam rangka menjalankan mandat dan fungsi PMI di bidang kemanusiaan.</li>
-                                              <li>Meningkatkan kemitraan yang berkesinambungan dengan sektor publik, swasta, mitra gerakan, lembaga donor dan pemangku kepentingan lainnya di semua tingkatan dalam melayanai masyarakat.</li>
-                                              <li>Meningkatkan akuntabilitas PMI sebagai organisasi kemanusiaan di tingkat Nasional maupun Internasional.</li>
-                                              <li>Meningkatkan pemahaman seluruh elemen masyarakat tentang nilai-nilai kemanusiaan, prinsip-prinsip dasar Gerakan Internasional Palang Merah / Bulan Sabit Merah serta Hukum Perikemanusiaan Internasional melalui upaya komunikasi, edukasi dan diseminasi.</li>
-                                          </ul>
+                                          {!! $identities->goals !!}
                                       </div>
                                   </div>
                               </div>
@@ -600,43 +563,29 @@
   </section>
 
   <section class="chooseus-section centred pt_120 pb_90">
-      <div class="bg-layer parallax-bg" data-parallax='{"y": 100}' style="background-image: url(https://pmisumut.or.id/wp-content/uploads/2023/10/pmisu.jpeg);"></div>
+      <div class="bg-layer parallax-bg" data-parallax='{"y": 100}' style="background-image: url('{{ asset('assets/img/background/pmisu.jpg') }}');"></div>
       <div class="auto-container">
           <div class="sec-title centred light mb_50">
               <span class="sub-title mb_12">Layanan</span>
               <h2>Layanan Kami</h2>
           </div>
-          <div class="row clearfix">
+          <div class="row clearfix justify-content-center">
+            @foreach ($service as $item)
               <div class="col-lg-4 col-md-6 col-sm-12 chooseus-block">
                   <div class="chooseus-block-one">
                       <div class="inner-box">
-                          <div class="icon-box"><i class="icon-12"></i></div>
-                          <h3><a href="index-2.html">Layanan Ambulan</a></h3>
-                          <p>Kami menyediakan layanan ambulan profesional yang siap melayani kebutuhan darurat dengan cepat dan aman setiap saat.</p>
-                          <div class="btn-box"><a href="index-2.html" class="theme-btn btn-one">Selengkapnya</a></div>
+                          <div class="d-flex justify-content-center">
+                            <div class="icon-box d-flex justify-content-center align-items-center">
+                              <img src="{{ CmsAsset::url($item->icon) }}" height="20px" alt="">
+                            </div>
+                          </div>
+                          <h3><a href="index-2.html">{{ $item->title }}</a></h3>
+                          <p>{{ $item->description }}</p>
+                          <div class="btn-box"><a href="{{ $item->cta_url }}" class="theme-btn btn-one">Selengkapnya</a></div>
                       </div>
                   </div>
               </div>
-              <div class="col-lg-4 col-md-6 col-sm-12 chooseus-block">
-                  <div class="chooseus-block-one">
-                      <div class="inner-box">
-                          <div class="icon-box"><i class="icon-14"></i></div>
-                          <h3><a href="index-2.html">Klinik Pratama</a></h3>
-                          <p>Klinik Pratama memberikan layanan kesehatan umum yang mudah diakses dengan tenaga medis berpengalaman dan ramah.</p>
-                          <div class="btn-box"><a href="index-2.html" class="theme-btn btn-one">Selengkapnya</a></div>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-lg-4 col-md-6 col-sm-12 chooseus-block">
-                  <div class="chooseus-block-one">
-                      <div class="inner-box">
-                          <div class="icon-box"><i class="icon-13"></i></div>
-                          <h3><a href="index-2.html">LSP PMI</a></h3>
-                          <p>LSP PMI hadir membangun standar kompetensi bagi tenaga kemanusiaan dan relawan yang siap menghadapi situasi darurat.</p>
-                          <div class="btn-box"><a href="index-2.html" class="theme-btn btn-one">Selengkapnya</a></div>
-                      </div>
-                  </div>
-              </div>
+            @endforeach
           </div>
       </div>
   </section>
@@ -781,8 +730,8 @@
 
   <section class="news-style-three pt_160 pb_90 z_1">
       <div class="pattern-layer">
-          <div class="pattern-1" style="background-image: url(assets/images/shape/shape-9.png);"></div>
-          <div class="pattern-2" style="background-image: url(assets/images/shape/shape-8.png);"></div>
+          <div class="pattern-1" style="background-image: url('{{ asset('assets/img/shape/shape-9.png') }}');"></div>
+          <div class="pattern-2" style="background-image: url('{{ asset('assets/img/shape/shape-8.png') }}');"></div>
       </div>
       <div class="auto-container">
           <div class="sec-title mb_50">
@@ -791,60 +740,34 @@
           </div>
           <div class="row clearfix">
               <div class="col-lg-8 col-md-12 col-sm-12 title-column">
-                  <div class="row clearfix">
-                      <div class="col-lg-6 col-md-6 col-sm-12">
-                          <div class="news-block-two wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
-                              <div class="inner-box">
-                                  <div class="bg-layer" style="background-image: url(assets/images/news/news-4.jpg);"></div>
-                                  <span class="post-date"><i class="icon-29"></i>Apr 19, 2025</span>
-                                  <h4><a href="blog-details.html">Self-Guided Driving & Tours Walk Of Greater City</a></h4>
-                                  <ul class="post-info">
-                                      <li><i class="icon-30"></i><a href="blog-details.html">Admin</a></li>
-                                      <li><i class="icon-31"></i><span>0 Comment</span></li>
-                                  </ul>
-                              </div>
-                          </div>
+                <div class="row clearfix d-flex flex-wrap">
+                  @foreach ($article as $item)
+                  <div class="col-lg-6 col-md-6 col-sm-12 d-flex mb-4">
+                    <div class="news-block-two wow fadeInUp animated flex-fill" data-wow-delay="00ms" data-wow-duration="1500ms">
+                      <div class="inner-box d-flex flex-column h-100">
+                        <div class="bg-layer" style="background-image: url('{{ CmsAsset::url($item->image) }}');"></div>
+                        <div>
+                          <span class="post-date">
+                            <i class="icon-29"></i>
+                            {{ \Carbon\Carbon::parse($item->published_at)->format('d F Y') }}
+                          </span>                        
+                        </div>
+                        <h4><a href="blog-details.html">{{ $item->title }}</a></h4>
+                        <ul class="post-info mt-auto">
+                          <li><i class="icon-30"></i><a href="blog-details.html">{{ $item->author->name ?? 'Admin' }}</a></li>
+                          <li>
+                            <i class="d-flex align-items-center">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-bookmark fw-bold" viewBox="0 0 16 16">
+                                <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1z"/>
+                              </svg>
+                            </i>
+                            <span>{{ $item->category->title }}</span></li>
+                        </ul>
                       </div>
-                      <div class="col-lg-6 col-md-6 col-sm-12">
-                          <div class="news-block-two wow fadeInUp animated" data-wow-delay="300ms" data-wow-duration="1500ms">
-                              <div class="inner-box">
-                                  <div class="bg-layer" style="background-image: url(assets/images/news/news-5.jpg);"></div>
-                                  <span class="post-date"><i class="icon-29"></i>Apr 18, 2025</span>
-                                  <h4><a href="blog-details.html">Assistance For Homes & Properties Real Estate</a></h4>
-                                  <ul class="post-info">
-                                      <li><i class="icon-30"></i><a href="blog-details.html">Admin</a></li>
-                                      <li><i class="icon-31"></i><span>6 Comment</span></li>
-                                  </ul>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="col-lg-6 col-md-6 col-sm-12">
-                          <div class="news-block-two wow fadeInUp animated" data-wow-delay="600ms" data-wow-duration="1500ms">
-                              <div class="inner-box">
-                                  <div class="bg-layer" style="background-image: url(assets/images/news/news-6.jpg);"></div>
-                                  <span class="post-date"><i class="icon-29"></i>Apr 17, 2025</span>
-                                  <h4><a href="blog-details.html">Long-Term Vision Of Health & Attractive Facility</a></h4>
-                                  <ul class="post-info">
-                                      <li><i class="icon-30"></i><a href="blog-details.html">Admin</a></li>
-                                      <li><i class="icon-31"></i><span>2 Comment</span></li>
-                                  </ul>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="col-lg-6 col-md-6 col-sm-12">
-                          <div class="news-block-two wow fadeInUp animated" data-wow-delay="600ms" data-wow-duration="1500ms">
-                              <div class="inner-box">
-                                  <div class="bg-layer" style="background-image: url(assets/images/news/news-6.jpg);"></div>
-                                  <span class="post-date"><i class="icon-29"></i>Apr 17, 2025</span>
-                                  <h4><a href="blog-details.html">Long-Term Vision Of Health & Attractive Facility</a></h4>
-                                  <ul class="post-info">
-                                      <li><i class="icon-30"></i><a href="blog-details.html">Admin</a></li>
-                                      <li><i class="icon-31"></i><span>2 Comment</span></li>
-                                  </ul>
-                              </div>
-                          </div>
-                      </div>
+                    </div>
                   </div>
+                  @endforeach
+                </div>
               </div>
               <div class="col-lg-4 col-md-12 col-sm-12 inner-column">
                   <div class="inner-content">
@@ -870,6 +793,7 @@
                               </div>
                           </div>
                       </div>
+                      
                   </div>
               </div>
           </div>
@@ -882,39 +806,50 @@
               <div class="col-lg-4 col-md-12 col-sm-12 title-column">
                   <div class="sec-title mb_40">
                       <span class="sub-title mb_12">Infografis</span>
-                      <h2>Infografis <br>PMI SUMUT</h2>
+                      <h2>Infografis <br>{{ $identities->subtitle }}</h2>
                   </div>
               </div>
               <div class="col-lg-8 col-md-12 col-sm-12 content-column">
-                  <div class="content-box">
-                      <div class="three-item-carousel owl-carousel owl-theme owl-dots-none nav-style-one">
-                          <div class="news-block-two wow fadeInUp animated" data-wow-delay="600ms" data-wow-duration="1500ms">
-                              <div class="inner-box">
-                                  <div class="bg-layer" style="background-image: url(https://web-cms.pmi.or.id/storage/images/cards/Home/4/c9d5d03f-e24e-460a-a8a8-8b5a9f6390e6/1749020417_Poster%20Displin%20prokes%20Relawan_pakaimasker.png);"></div>
-                                  <h6><a class="text-white" href="blog-details.html">Long-Term Vision Of Health & Attractive Facility</a></h6>
-                              </div>
-                          </div>
-                          <div class="news-block-two wow fadeInUp animated" data-wow-delay="600ms" data-wow-duration="1500ms">
-                              <div class="inner-box">
-                                  <div class="bg-layer" style="background-image: url(https://web-cms.pmi.or.id/storage/images/cards/Home/4/c9d5d03f-e24e-460a-a8a8-8b5a9f6390e6/1749020417_Poster%20Displin%20prokes%20Relawan_pakaimasker.png);"></div>
-                                  <h6><a class="text-white" href="blog-details.html">Long-Term Vision Of Health & Attractive Facility</a></h6>
-                              </div>
-                          </div>
-                          <div class="news-block-two wow fadeInUp animated" data-wow-delay="600ms" data-wow-duration="1500ms">
-                              <div class="inner-box">
-                                  <div class="bg-layer" style="background-image: url(https://web-cms.pmi.or.id/storage/images/cards/Home/4/c9d5d03f-e24e-460a-a8a8-8b5a9f6390e6/1749020417_Poster%20Displin%20prokes%20Relawan_pakaimasker.png);"></div>
-                                  <h6><a class="text-white" href="blog-details.html">Long-Term Vision Of Health & Attractive Facility</a></h6>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
+                <div class="content-box">
+                    <div class="three-item-carousel owl-carousel owl-theme owl-dots-none nav-style-one">
+                        @foreach ($infographic as $item)
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $item->id }}" class="news-block-two shadow-lg wow fadeInUp animated" data-wow-delay="600ms" data-wow-duration="1500ms">
+                            <div class="inner-box d-flex align-items-center justify-content-center" style="height: 300px;">
+                                <div class="bg-layer-infografis" style="background-image: url('{{ CmsAsset::url($item->image) }}'); background-size: cover; background-position: center; width: 100%; height: 100%;">
+                                </div>
+                            </div>
+                        </a>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
           </div>
       </div>
   </section>
 
+  @foreach ($infographic as $item)
+  <div class="modal fade" id="exampleModal{{ $item->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  @endforeach
+
+
   <section class="cta-section">
-      <div class="pattern-layer" style="background-image: url(assets/images/shape/shape-3.png);"></div>
+      <div class="pattern-layer" style="background-image: url('{{ asset('assets/img/shape/shape-3.png') }}');"></div>
       <div class="bubble-shape">
           <div class="bubble bubble-1"></div>
           <div class="bubble bubble-2"></div>
@@ -927,10 +862,10 @@
               </div>
               <span class="big-text">Hotline</span>
               <div class="text-box">
-                  <h2>Posko Penanggulangan Bencana <br> PMI Provinsi Sumatera Utara</h2>
-                  <a href="tel:12463330089">061 - 5430 198</a>
+                  <h2>Posko Penanggulangan Bencana <br> {{ $identities->title }}</h2>
+                  <a href="tel:{{ $identities->hotline }}">{{ $identities->hotline }}</a>
               </div>
-              <figure class="image-box"><img src="https://pbs.twimg.com/profile_images/956075104416468992/Ujx5WHtI_400x400.jpg" alt=""></figure>
+              <figure class="image-box"><img src="{{ asset('assets/img/background/posko.png') }}" alt="posko"></figure>
           </div>
       </div>
   </section>
@@ -940,28 +875,31 @@
           <div class="row clearfix">
               <div class="col-lg-6 col-md-12 col-sm-12 map-column">
                   <div class="map-inner">
-                      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d55945.16225505631!2d-73.90847969206546!3d40.66490264739892!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1601263396347!5m2!1sen!2sbd" width="100%" height="500" frameborder="0" style="border:0; width: 100%" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                      <iframe src="{{ $identities->maps_url }}" width="100%" height="600" frameborder="0" style="border:0; width: 100%" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
                   </div>
               </div>
               <div class="col-lg-6 col-md-12 col-sm-12 form-column">
                   <div class="form-inner ml_10">
                       <div class="sec-title mb_45">
-                          <span class="sub-title mb_12">Get in touch</span>
-                          <h2>Send a Message</h2>
+                          <span class="sub-title mb_12">Kontak</span>
+                          <h2>Kirim kami pesan</h2>
                       </div>
                       <form method="post" action="https://azim.hostlin.com/Amcare/sendemail.php" id="contact-form" class="default-form">
                           <div class="row clearfix">
                               <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                                  <input type="text" name="username" placeholder="Your name" required>
+                                  <input type="text" name="username" placeholder="Nama Lengkap" required>
                               </div>
                               <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                                  <input type="email" name="email" placeholder="Your email" required>
+                                  <input type="email" name="email" placeholder="Email" required>
                               </div>
                               <div class="col-lg-12 col-md-12 col-sm-12 form-group">
-                                  <textarea name="message" placeholder="Type message"></textarea>
+                                  <input type="text" name="subject" placeholder="Subyek" required>
+                              </div>
+                              <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                  <textarea name="message" placeholder="Tulis pesan kamu.."></textarea>
                               </div>
                               <div class="col-lg-12 col-md-12 col-sm-12 form-group message-btn">
-                                  <button type="submit" class="theme-btn btn-one" name="submit-form">Send Message</button>
+                                  <button type="submit" class="theme-btn btn-one" name="submit-form">Kirim</button>
                               </div>
                           </div>
                       </form>
@@ -972,19 +910,17 @@
   </section>
 
   <section class="brand-section pb_90">
-      <div class="auto-container">
-          <div class="sec-title centred mb_50">
-              <h3>Mitra Kami</h3>
-              <p class="mt-2">Kami Bekerja sama dengan</p>
-          </div>
-          <div class="brand-carousel owl-carousel owl-theme owl-dots-none owl-nav-none">
-              <div class="brand-logo-box"><a href="index-2.html"><img src="assets/images/brand/brand-1.png" alt=""></a></div>
-              <div class="brand-logo-box"><a href="index-2.html"><img src="assets/images/brand/brand-2.png" alt=""></a></div>
-              <div class="brand-logo-box"><a href="index-2.html"><img src="assets/images/brand/brand-3.png" alt=""></a></div>
-              <div class="brand-logo-box"><a href="index-2.html"><img src="assets/images/brand/brand-4.png" alt=""></a></div>
-              <div class="brand-logo-box"><a href="index-2.html"><img src="assets/images/brand/brand-5.png" alt=""></a></div>
-          </div>
+    <div class="auto-container">
+      <div class="sec-title centred mb_50">
+        <h3>Mitra Kami</h3>
+        <p class="mt-2">Kami bekerja sama dengan</p>
       </div>
+      <div class="brand-carousel owl-carousel owl-theme owl-dots-none owl-nav-none">
+        @foreach ($partner as $item)
+          <div class="brand-logo-box"><a href="{{ $item->url }}"><img src="{{ CmsAsset::url($item->logo) }}" alt="{{ $item->name }}"></a></div>
+        @endforeach
+      </div>
+    </div>
   </section>
 
 @endsection

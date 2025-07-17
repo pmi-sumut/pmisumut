@@ -120,6 +120,10 @@
   
 }
 
+.logo-box img{
+  max-height: 100px !important;
+}
+
 
 .header-top{
   position: relative;
@@ -529,7 +533,7 @@
 }
 
 .mobile-menu .nav-logo img{
-  max-width: 160px;
+  max-width: 120px;
 }
 
 .menu-area .mobile-nav-toggler .icon-bar{

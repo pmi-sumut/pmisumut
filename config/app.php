@@ -123,4 +123,8 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    'aliases' => [
+        'CmsAsset' => App\Helpers\CmsAsset::class,
+    ],
+
 ];

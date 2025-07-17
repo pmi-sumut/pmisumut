@@ -145,6 +145,17 @@
   background-position: center;
 }
 
+.news-block-two .inner-box .bg-layer-infografis{
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 .news-block-two .inner-box .bg-layer:before{
   position: absolute;
   content: '';
