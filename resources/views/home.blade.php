@@ -85,6 +85,7 @@
           <div class="inner-container">
               <div class="row clearfix">
                   <div class="col-lg-4 col-md-6 col-sm-12 funfact-block">
+                    <a href="{{ route('relawan.palang-merah-remaja') }}">
                       <div class="funfact-block-three">
                           <div class="inner-box">
                               <div class="icon-box"><i class="icon-38"></i></div>
@@ -96,8 +97,10 @@
                               </div>
                           </div>
                       </div>
+                    </a>
                   </div>
                   <div class="col-lg-4 col-md-6 col-sm-12 funfact-block">
+                    <a href="{{ route('relawan.korps-sukarela') }}">
                       <div class="funfact-block-three">
                           <div class="inner-box">
                               <div class="icon-box"><i class="icon-38"></i></div>
@@ -109,8 +112,10 @@
                               </div>
                           </div>
                       </div>
+                    </a>
                   </div>
                   <div class="col-lg-4 col-md-6 col-sm-12 funfact-block">
+                    <a href="{{ route('relawan.tenaga-sukarela') }}">
                       <div class="funfact-block-three">
                           <div class="inner-box">
                               <div class="icon-box"><i class="icon-38"></i></div>
@@ -122,6 +127,7 @@
                               </div>
                           </div>
                       </div>
+                    </a>
                   </div>
               </div>
           </div>
@@ -751,16 +757,16 @@
                             {{ \Carbon\Carbon::parse($item->published_at)->format('d F Y') }}
                           </span>                        
                         </div>
-                        <h4><a href="blog-details.html">{{ $item->title }}</a></h4>
+                        <h4><a href="{{ route('artikel.show', $item->slug) }}">{{ $item->title }}</a></h4>
                         <ul class="post-info mt-auto">
-                          <li><i class="icon-30"></i><a href="blog-details.html">{{ $item->author->name ?? 'Admin' }}</a></li>
+                          <li><i class="icon-30"></i>{{ $item->author->name ?? 'Admin' }}</li>
                           <li>
                             <i class="d-flex align-items-center">
                               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-bookmark fw-bold" viewBox="0 0 16 16">
                                 <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1z"/>
                               </svg>
                             </i>
-                            <span>{{ $item->category->title }}</span></li>
+                            <span>{{ $item->category->title ?? '-' }}</span></li>
                         </ul>
                       </div>
                     </div>

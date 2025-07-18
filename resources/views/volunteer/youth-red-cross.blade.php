@@ -7,7 +7,7 @@
 @section('content')
   <section class="page-title centred">
     <div class="bg-layer" style="background-image: url('{{ asset('assets/img/background/relawan.png') }}');"></div>
-    <div class="auto-container">
+      <div class="auto-container">
         <div class="content-box">
             <ul class="bread-crumb">
                 <li><a href="index-2.html">{{ $page }}</a></li>
@@ -19,7 +19,7 @@
                 <p class="text-white pt-3">{{ $description }}</p>
               </div>
             </div>
-        </div>
+      </div>
     </div>
   </section>
 
@@ -33,7 +33,7 @@
                       <div class="content-box">
                           <h2 class="mb-0">PMR Mula</h2>
                           <p class="mb-3">Untuk tingkat setara SD (sekolah dasar)</p>
-                          <p class="fw-semibold fs-2 mb-5">1,265 Anggota</p>
+                          <p class="fw-semibold fs-2 mb-5">244 Anggota</p>
                           <div class="btn-box"><a href="https://mis.pmi.or.id/pmi/anggota/register?jenis=1">Gabung Sekarang</a></div>
                       </div>
                   </div>
@@ -45,7 +45,7 @@
                       <div class="content-box">
                           <h2 class="mb-0">PMR Madya</h2>
                           <p class="mb-3">Untuk tingkat setara SMP (sekolah menengah pertama)</p>
-                          <p class="fw-semibold fs-2 mb-5">1,265 Anggota</p>
+                          <p class="fw-semibold fs-2 mb-5">3,002 Anggota</p>
                           <div class="btn-box"><a href="https://mis.pmi.or.id/pmi/anggota/register?jenis=2">Gabung Sekarang</a></div>
                       </div>
                   </div>
@@ -57,7 +57,7 @@
                       <div class="content-box">
                           <h2 class="mb-0">PMR Wira</h2>
                           <p class="mb-3">Untuk tingkat setara SMA (sekolah menengah atas)</p>
-                          <p class="fw-semibold fs-2 mb-5">1,265 Anggota</p>
+                          <p class="fw-semibold fs-2 mb-5">9,190 Anggota</p>
                           <div class="btn-box"><a href="https://mis.pmi.or.id/pmi/anggota/register?jenis=3">Gabung Sekarang</a></div>
                       </div>
                   </div>

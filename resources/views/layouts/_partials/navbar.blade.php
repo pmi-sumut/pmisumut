@@ -71,8 +71,9 @@
                                 <li class="dropdown">
                                   <a href="#">Artikel</a>
                                   <ul>
+                                    <li><a href="{{ route('artikel') }}">Semua</a></li>
                                     @foreach ($categories as $category)
-                                      <li><a href="">{{$category->title}}</a></li>
+                                      <li><a href="{{ route('artikel', ['category' => $category->slug]) }}">{{$category->title}}</a></li>
                                     @endforeach
                                   </ul>
                                 </li> 
