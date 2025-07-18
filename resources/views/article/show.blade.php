@@ -68,9 +68,12 @@
                             <h3>Cari Artikel</h3>
                         </div>
                         <div class="search-form">
-                            <form action="https://azim.hostlin.com/Amcare/blog-3.html" method="get" class="default-form">
+                            <form id="searchForm" action="{{ route('artikel') }}" method="get" class="default-form">
+                                @if (!empty($categorySlug))
+                                    <input type="hidden" name="category" value="{{ $categorySlug }}">
+                                @endif
                                 <div class="form-group">
-                                    <input type="search" name="search-field" placeholder="Search..." required>
+                                    <input type="search" name="q" value="{{ request('q') }}" placeholder="Search...">
                                     <button type="submit"><i class="icon-8"></i></button>
                                 </div>
                             </form>
