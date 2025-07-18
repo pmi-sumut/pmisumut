@@ -5,28 +5,32 @@ namespace App\Http\Controllers;
 use App\Models\Page;
 use App\Models\Visitor;
 use Illuminate\Http\Request;
+use App\Services\VisitorService;
 
 class PageController extends Controller
 {
+    protected $visitorService;
+    protected $pageModel;
+
+    public function __construct(VisitorService $visitorService, Page $pageModel)
+    {
+        $this->visitorService = $visitorService;
+        $this->pageModel = $pageModel;
+    }
+
     public function index($slug)
     {
-        // Ambil halaman berdasarkan slug
-        $article = Page::where('slug', $slug)->firstOrFail();
+        $page = $this->pageModel->where('slug', $slug)->firstOrFail();
 
-        Visitor::create([
-            'page_id' => $article->id,
-            'ip_address' => request()->ip(), 
-            'user_agent' => request()->userAgent(),
-        ]);
+        $this->visitorService->page($page->id);
 
         $data = [
             'page' => 'Page',
-            'title' => $article->title,
-            'description' => $article->description,
-            'pages' => $article,
+            'title' => $page->title,
+            'description' => $page->description,
+            'pages' => $page,
         ];
 
         return view('page', $data);
     }
 }
-

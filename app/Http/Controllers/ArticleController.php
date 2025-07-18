@@ -6,67 +6,69 @@ use App\Models\Post;
 use App\Models\Visitor;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Services\VisitorService;
 
 class ArticleController extends Controller
 {
+    protected $visitorService;
+    protected $postModel;
+    protected $categoryModel;
+
+    public function __construct(VisitorService $visitorService, Post $post, Category $category)
+    {
+        $this->visitorService = $visitorService;
+        $this->postModel = $post;
+        $this->categoryModel = $category;
+    }
 
     public function index(Request $request)
     {
         $search = $request->input('q');
         $categorySlug = $request->input('category');
 
-        $query = Post::query();
+        $query = $this->postModel->query(); 
         $categoryName = 'Semua Artikel';
 
-        if (!empty($categorySlug)) {
-            $category = Category::where('slug', $categorySlug)->first();
+        if ($categorySlug) {
+            $category = $this->categoryModel->where('slug', $categorySlug)->first();
             if ($category) {
                 $categoryName = $category->title;
+                $query->whereHas('category', function ($q) use ($categorySlug) {
+                    $q->where('slug', $categorySlug);
+                });
             }
-            $query->whereHas('category', function ($q) use ($categorySlug) {
-                $q->where('slug', $categorySlug);
-            });
         }
 
-        if (!empty($search)) {
+        if ($search) {
             $query->where('title', 'LIKE', '%' . $search . '%');
         }
 
         $posts = $query->where('status', 'Published')
-                    ->orderBy('published_at', 'desc')
-                    ->paginate(5);
+                        ->orderBy('published_at', 'desc')
+                        ->paginate(5);
 
-        $data = [
+        return view('article.index', [
             'page' => 'Artikel',
             'title' => $categoryName,
             'description' => $search ? 'Cari: ' . $search : null,
             'article' => $posts,
             'categorySlug' => $categorySlug,
-            'populer' => Post::popular()->limit(5)->get()
-        ];
-        return view('article.index', $data);
+            'populer' => $this->postModel->popular()->limit(5)->get()
+        ]);
     }
 
     public function show($slug)
     {
-        $article = Post::where('slug', $slug)->where('status', 'Published')->firstOrFail();
+        $article = $this->postModel->where('slug', $slug)->where('status', 'Published')->firstOrFail();
 
-        Visitor::create([
-            'post_id' => $article->id,
-            'ip_address' => request()->ip(),
-            'user_agent' => request()->userAgent(),
-            'referrer' => url()->current(),
-        ]);
+        $this->visitorService->post($article->id);
 
-        $data = [
+        return view('article.show', [
             'page' => 'Artikel',
             'title' => 'Detail Artikel',
             'description' => null,
             'article' => $article,
-            'populer' => Post::popular()->limit(5)->get()
-        ];
-
-        return view('article.show', $data);
+            'populer' => $this->postModel->popular()->limit(5)->get()
+        ]);
     }
 }
-
