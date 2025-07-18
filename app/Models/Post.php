@@ -47,7 +47,7 @@ class Post extends Model
 
     public function visitorCount()
     {
-        return $this->hasMany(Visitor::class, 'post_id', 'id')->count();
+        return $this->hasMany(Visitor::class, 'post_id', 'id');
     }
 
     public function scopePublished($query)
@@ -78,4 +78,11 @@ class Post extends Model
 
         return ($mins < 1) ? 1 : $mins;
     }
+
+    public function scopePopular($query)
+    {
+        return $query->withCount('visitorCount')
+                    ->orderBy('visitor_count_count', 'desc');
+    }
+
 }

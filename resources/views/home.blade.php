@@ -611,7 +611,7 @@
                       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                   </div>
               </div>
-              <div class="col-lg-4 col-md-6 col-sm-12">
+              <div class="col-lg-4 col-12">
                   <div class="feature-block-three">
                       <div class="inner-box b_shadow_1">
                           <h3>
@@ -650,7 +650,7 @@
                       </div>
                   </div>
               </div>
-              <div class="col-lg-8 col-md-6 col-sm-12">
+              <div class="col-lg-8 col-12">
                   <div class="feature-block-three ">
                       <div class="inner-box b_shadow_1">
                           <small>
@@ -733,7 +733,7 @@
       </div>
   </section>
 
-  <section class="news-style-three pt_160 pb_90 z_1">
+  <section class="news-style-three pt_160 mb-3 z_1">
       <div class="pattern-layer">
           <div class="pattern-1" style="background-image: url('{{ asset('assets/img/shape/shape-9.png') }}');"></div>
           <div class="pattern-2" style="background-image: url('{{ asset('assets/img/shape/shape-8.png') }}');"></div>
@@ -744,62 +744,93 @@
               <h2>Media Center PMI SUMUT</h2>
           </div>
           <div class="row clearfix">
-              <div class="col-lg-8 col-md-12 col-sm-12 title-column">
+            <!-- Kiri: Artikel -->
+            <div class="col-lg-8 col-md-12 col-sm-12 title-column">
                 <div class="row clearfix d-flex flex-wrap">
-                  @foreach ($article as $item)
-                  <div class="col-lg-6 col-md-6 col-sm-12 d-flex mb-4">
-                    <div class="news-block-two wow fadeInUp animated flex-fill" data-wow-delay="00ms" data-wow-duration="1500ms">
-                      <div class="inner-box d-flex flex-column h-100">
-                        <div class="bg-layer" style="background-image: url('{{ CmsAsset::url($item->image) }}');"></div>
-                        <div>
-                          <span class="post-date">
-                            <i class="icon-29"></i>
-                            {{ \Carbon\Carbon::parse($item->published_at)->format('d F Y') }}
-                          </span>                        
+                    @forelse ($article as $item)
+                        <div class="col-lg-6 col-md-6 col-sm-12 d-flex mb-4">
+                            <div class="news-block-two wow fadeInUp animated flex-fill" data-wow-delay="00ms" data-wow-duration="1500ms">
+                                <div class="inner-box d-flex flex-column h-100">
+                                    <div class="bg-layer" style="background-image: url('{{ CmsAsset::url($item->image) }}');"></div>
+                                    <div>
+                                        <span class="post-date">
+                                            <i class="icon-29"></i>
+                                            {{ \Carbon\Carbon::parse($item->published_at)->format('d F Y') }}
+                                        </span>
+                                    </div>
+                                    <h4>
+                                        <a href="{{ route('artikel.show', $item->slug) }}">{{ $item->title }}</a>
+                                    </h4>
+                                    <ul class="post-info mt-auto">
+                                        <li><i class="icon-30"></i>{{ $item->author->name ?? 'Admin' }}</li>
+                                        <li>
+                                            <i class="d-flex align-items-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-bookmark fw-bold" viewBox="0 0 16 16">
+                                                    <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1z"/>
+                                                </svg>
+                                            </i>
+                                            <span>{{ $item->category->title ?? '-' }}</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
-                        <h4><a href="{{ route('artikel.show', $item->slug) }}">{{ $item->title }}</a></h4>
-                        <ul class="post-info mt-auto">
-                          <li><i class="icon-30"></i>{{ $item->author->name ?? 'Admin' }}</li>
-                          <li>
-                            <i class="d-flex align-items-center">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-bookmark fw-bold" viewBox="0 0 16 16">
-                                <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1z"/>
-                              </svg>
-                            </i>
-                            <span>{{ $item->category->title ?? '-' }}</span></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  @endforeach
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-12 col-sm-12 inner-column">
-                <div class="inner-content">
-                  @foreach ($agenda as $item)
-                    <div class="news-block-three">
-                      <div class="inner-box">
-                        <div>
-                          <ul class="post-info">
-                            <li>
-                              <span class="bg-danger text-white">
-                              {{ \Carbon\Carbon::parse($item->start_date)->format('d F Y') }} 
-                                @if ($item->end_date)
-                                  - 
-                                  {{ \Carbon\Carbon::parse($item->end_date)->format('d F Y') }}
-                                @endif 
-                              </span>
-                            </li>
-                          </ul>
-                          <h3><a href="blog-details.html">{{ $item->title }}</a></h3>
-                          <div class="link-box"><a href="blog-details.html"><span>Baca Selengkapnya</span><i class="icon-39"></i></a></div>
+                    @empty
+                        <div class="col-12 text-center py-5 text-muted">
+                            <i class="bi bi-journal-x" style="font-size: 2rem;"></i>
+                            <div class="mt-2">Tidak ada artikel ditemukan.</div>
                         </div>
-                      </div>
-                    </div>
-                  @endforeach
+                    @endforelse
                 </div>
-              </div>
-          </div>
+            </div>
+            <!-- Kanan: Agenda + Instagram Scrollable -->
+            <div class="col-lg-4 col-md-12 col-sm-12 inner-column d-flex flex-column h-100">
+                <!-- Agenda -->
+                <div class="inner-content flex-shrink-0">
+                    @forelse ($agenda as $item)
+                        <div class="news-block-three mb-4">
+                            <div class="inner-box">
+                                <div>
+                                    <ul class="post-info">
+                                        <li>
+                                            <span class="bg-danger text-white">
+                                                {{ \Carbon\Carbon::parse($item->start_date)->format('d F Y') }}
+                                                @if ($item->end_date)
+                                                    - {{ \Carbon\Carbon::parse($item->end_date)->format('d F Y') }}
+                                                @endif
+                                            </span>
+                                        </li>
+                                    </ul>
+                                    <h3>
+                                        <a href="blog-details.html">{{ $item->title }}</a>
+                                    </h3>
+                                    <div class="link-box">
+                                        <a href="blog-details.html">
+                                            <span>Baca Selengkapnya</span>
+                                            <i class="icon-39"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @empty
+                        <div class="text-center py-4 text-muted">
+                            <i class="bi bi-calendar-x" style="font-size: 1.5rem;"></i>
+                            <div class="mt-2">Tidak ada agenda.</div>
+                        </div>
+                    @endforelse
+                </div>
+                <!-- Instagram SCROLLABLE -->
+                <div class="instagram mt-4 flex-grow-1" style="max-height: 600px; overflow-y: auto;">
+                    <div class="taggbox w-100" data-widget-id="292714" website="1"></div>
+                    <script src="https://widget.taggbox.com/embed.min.js" type="text/javascript"></script>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+          <div class="taggbox" style="width:100%;height:100%;overflow:auto;" data-widget-id="292856" website="1"></div><script src="https://widget.taggbox.com/embed.min.js" type="text/javascript"></script>
+        </div>
       </div>
   </section>    
     

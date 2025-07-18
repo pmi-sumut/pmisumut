@@ -92,7 +92,7 @@
     <div class="sticky-header">
         <div class="auto-container">
             <div class="outer-box">
-                <figure class="logo-box"><a href="index-2.html"><img src="{{ CmsAsset::url($identities->logo) }}" alt=""></a></figure>
+                <figure class="logo-box"><a href="/"><img src="{{ CmsAsset::url($identities->logo) }}" alt=""></a></figure>
                 <div class="menu-area">
                     <nav class="main-menu clearfix">
                     </nav>
@@ -107,26 +107,26 @@
 </header>
 
 <div class="mobile-menu">
-  <div class="menu-backdrop"></div>
-  <div class="close-btn"><i class="fas fa-times"></i></div>
-  <nav class="menu-box">
-      <div class="nav-logo"><a href="index-2.html"><img src="assets/images/logo-2.png" alt="" title=""></a></div>
-          <div class="menu-outer"><!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header--></div>
-      <div class="contact-info">
-          <h4>Informasi Markas</h4>
-          <ul>
-              <li>{{ $identities->address }}</li>
-              <li><a href="tel:{{ $identities->phone }}">{{ $identities->phone }}</a></li>
-              <li><a href="mailto:{{ $identities->email }}">{{ $identities->email }}</a></li>
-          </ul>
-      </div>
-      <div class="social-links">
-          <ul class="clearfix">
-              <li><a href="index-2.html"><span class="fab fa-twitter"></span></a></li>
-              <li><a href="index-2.html"><span class="fab fa-facebook-square"></span></a></li>
-              <li><a href="index-2.html"><span class="fab fa-instagram"></span></a></li>
-              <li><a href="index-2.html"><span class="fab fa-youtube"></span></a></li>
-          </ul>
-      </div>
-  </nav>
-  </div>
+    <div class="menu-backdrop"></div>
+    <div class="close-btn mt-5 pt-2 fs-1"><i class="fas fa-times"></i></div>
+    <nav class="menu-box">
+        <div class="nav-logo"><a href="/"><img src="{{ CmsAsset::url($identities->logo) }}" alt="" title=""></a></div>
+            <div class="menu-outer"><!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header--></div>
+        <div class="contact-info">
+            <h4>Informasi Markas</h4>
+            <ul>
+                <li>{{ $identities->address }}</li>
+                <li><a href="tel:{{ $identities->phone }}">{{ $identities->phone }}</a></li>
+                <li><a href="mailto:{{ $identities->email }}">{{ $identities->email }}</a></li>
+            </ul>
+        </div>
+        <div class="social-links">
+            <ul class="clearfix">
+                <li><a href="{{ $identities->social_twitter }}"><span class="fab fa-twitter"></span></a></li>
+                <li><a href="{{ $identities->social_facebook }}"><span class="fab fa-facebook-square"></span></a></li>
+                <li><a href="{{ $identities->social_instagram }}"><span class="fab fa-instagram"></span></a></li>
+                <li><a href="{{ $identities->social_youtube }}"><span class="fab fa-youtube"></span></a></li>
+            </ul>
+        </div>
+    </nav>
+</div>

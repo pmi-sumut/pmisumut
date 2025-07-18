@@ -1,10 +1,9 @@
 @extends('layouts.main')
+@section('seo')
   <link href="{{ asset('assets/css/module-css/page-title.css') }}" rel="stylesheet">
   <link href="{{ asset('assets/css/module-css/blog-sidebar.css') }}" rel="stylesheet">
   <link href="{{ asset('assets/css/module-css/blog-details.css') }}" rel="stylesheet">
   <link href="{{ asset('assets/css/module-css/subscribe.css') }}" rel="stylesheet">
-
-@section('seo')
 @endsection
 
 @section('content')
@@ -94,27 +93,15 @@
                             <h3>Populer</h3>
                         </div>
                         <div class="post-inner">
-                            <div class="post">
-                                <figure class="post-thumb"><a href="blog-details.html"><img src="assets/images/news/post-1.jpg" alt=""></a></figure>
+                          @foreach ($populer as $item)
+                            <div class="post d-flex align-items-center">
+                                <figure class="post-thumb"><a href="{{ route('artikel.show', $item->slug) }}"><img src="{{ CmsAsset::url($item->image) }}" alt=""></a></figure>
                                 <article>
-                                    <h5><a href="blog-details.html">International air ambulance Long</a></h5>
-                                    <span class="post-date"><i class="icon-29"></i>20 Aug, 2024</span>
+                                    <h5><a href="{{ route('artikel.show', $item->slug) }}">{{ \Illuminate\Support\Str::limit($item->title , 40) }}</a></h5>
+                                    <span class="post-date"><i class="icon-29"></i>{{ \Carbon\Carbon::parse($item->published_at)->format('d F Y') }}</span>
                                 </article>
                             </div>
-                            <div class="post">
-                                <figure class="post-thumb"><a href="blog-details.html"><img src="assets/images/news/post-2.jpg" alt=""></a></figure>
-                                <article>
-                                    <h5><a href="blog-details.html">Mental health care after a medical</a></h5>
-                                    <span class="post-date"><i class="icon-29"></i>19 Aug, 2024</span>
-                                </article>
-                            </div>
-                            <div class="post">
-                                <figure class="post-thumb"><a href="blog-details.html"><img src="assets/images/news/post-3.jpg" alt=""></a></figure>
-                                <article>
-                                    <h5><a href="blog-details.html">Transforming Organ Transport</a></h5>
-                                    <span class="post-date"><i class="icon-29"></i>18 Aug, 2024</span>
-                                </article>
-                            </div>
+                          @endforeach
                         </div>
                     </div>
                 </div>

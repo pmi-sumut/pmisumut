@@ -8,7 +8,7 @@ use App\Http\Controllers\VolunteerController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/{page}/{slug}', [PageController::class, 'index'])->name('page');
+Route::get('/page/{slug}', [PageController::class, 'index'])->name('page');
 
 Route::prefix('/relawan')->group(function () {
     Route::get('/palang-merah-remaja', [VolunteerController::class, 'youthRedCross'])->name('relawan.palang-merah-remaja');

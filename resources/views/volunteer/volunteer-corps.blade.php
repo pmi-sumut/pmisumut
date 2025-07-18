@@ -1,7 +1,7 @@
 
 @extends('layouts.main')
-<link href="{{ asset('assets/css/module-css/page-title.css') }}" rel="stylesheet">
 @section('seo')
+  <link href="{{ asset('assets/css/module-css/page-title.css') }}" rel="stylesheet">
 @endsection
 
 @section('content')

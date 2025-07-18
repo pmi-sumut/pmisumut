@@ -1,10 +1,9 @@
 @extends('layouts.main')
+@section('seo')
   <link href="{{ asset('assets/css/module-css/page-title.css') }}" rel="stylesheet">
   <link href="{{ asset('assets/css/module-css/blog-sidebar.css') }}" rel="stylesheet">
   <link href="{{ asset('assets/css/module-css/blog-details.css') }}" rel="stylesheet">
   <link href="{{ asset('assets/css/module-css/subscribe.css') }}" rel="stylesheet">
-
-@section('seo')
 @endsection
 
 @section('content')

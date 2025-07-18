@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Visitor;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
@@ -41,18 +42,31 @@ class ArticleController extends Controller
             'description' => $search ? 'Cari: ' . $search : null,
             'article' => $posts,
             'categorySlug' => $categorySlug,
+            'populer' => Post::popular()->limit(5)->get()
         ];
         return view('article.index', $data);
     }
 
-    public function show($slug){
+    public function show($slug)
+    {
         $article = Post::where('slug', $slug)->where('status', 'Published')->firstOrFail();
+
+        Visitor::create([
+            'post_id' => $article->id,
+            'ip_address' => request()->ip(),
+            'user_agent' => request()->userAgent(),
+            'referrer' => url()->current(),
+        ]);
+
         $data = [
             'page' => 'Artikel',
-            'title' => 'Semua Artikel',
+            'title' => 'Detail Artikel',
             'description' => null,
-            'article' => $article
+            'article' => $article,
+            'populer' => Post::popular()->limit(5)->get()
         ];
-        return view('article.show',  $data);
+
+        return view('article.show', $data);
     }
 }
+
