@@ -7,19 +7,20 @@
 @section('content')
   <section class="banner-section p_relative">
     <div class="banner-carousel owl-theme owl-carousel owl-nav-none">
-      @foreach ($slider as $item)
-        <div class="slide-item p_relative">
-          <div class="bg-layer" style="background-image: url('{{ CmsAsset::url($item->image) }}');"></div>
-          <div class="auto-container">
-            <div class="content-box">
-              <h2>{{ $item->title }}</h2>
-              <p>{{ $item->description }}</p>
+        @foreach ($slider as $item)
+            <div class="slide-item p_relative">
+                <div class="bg-layer" style="background-image: url('{{ CmsAsset::url($item->image) }}');"></div>
+                <div class="auto-container">
+                    <div class="content-box">
+                        <h2>{{ $item->title }}</h2>
+                        <p>{{ $item->description }}</p>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      @endforeach
+        @endforeach
     </div>
-  </section>
+</section>
+
 
   <section class="about-section pt_120 ">
       <div class="auto-container">
@@ -863,18 +864,18 @@
 
   @foreach ($infographic as $item)
   <div class="modal fade" id="exampleModal{{ $item->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <div class="modal-header border-0">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">{{ $item->title }}</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          ...
+          <img src="{{ CmsAsset::url($item->image) }}" class="img-fluid" alt="">
+          <div class="pt-3">{!! $item->content !!}</div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+        <div class="modal-footer border-0 text-center d-flex justify-content-center">
+          <button type="button" class="btn btn-danger rounded-pill px-4" data-bs-dismiss="modal">Tutup</button>
         </div>
       </div>
     </div>
@@ -915,8 +916,8 @@
               <div class="col-lg-6 col-md-12 col-sm-12 form-column">
                   <div class="form-inner ml_10">
                       <div class="sec-title mb_45">
-                          <span class="sub-title mb_12">Kontak</span>
-                          <h2>Kirim kami pesan</h2>
+                          <h2>Punya Pertanyaan?</h2>
+                          <p>Kami siap membantu. <br> Silakan hubungi kami jika Anda membutuhkan informasi lebih lanjut.</p>
                       </div>
                       <form method="post" action="https://azim.hostlin.com/Amcare/sendemail.php" id="contact-form" class="default-form">
                           <div class="row clearfix">
@@ -951,7 +952,7 @@
       </div>
       <div class="brand-carousel owl-carousel owl-theme owl-dots-none owl-nav-none">
         @foreach ($partner as $item)
-          <div class="brand-logo-box"><a href="{{ $item->url }}"><img src="{{ CmsAsset::url($item->logo) }}" alt="{{ $item->name }}"></a></div>
+          <div class="brand-logo-box"><a href="{{ $item->url }}" class="d-flex justify-content-center"><img src="{{ CmsAsset::url($item->logo) }}" alt="{{ $item->name }}"></a></div>
         @endforeach
       </div>
     </div>

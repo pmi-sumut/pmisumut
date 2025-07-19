@@ -1,0 +1,67 @@
+.tinymce-content {
+  font-family: 'Open Sans', Arial, sans-serif !important;
+  font-size: 1rem !important;
+  color: #222 !important;
+  line-height: 1.7 !important;
+  background: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.tinymce-content h1,
+.tinymce-content h2,
+.tinymce-content h3,
+.tinymce-content h4,
+.tinymce-content h5,
+.tinymce-content h6 {
+  font-family: inherit !important;
+  color: #222 !important;
+  margin: 1em 0 0.5em 0 !important;
+  font-weight: 700 !important;
+}
+
+.tinymce-content p {
+  margin: 0 0 1em 0 !important;
+  color: #222 !important;
+  font-size: 1rem !important;
+}
+.tinymce-content ul,
+.tinymce-content ol {
+  list-style-type: initial !important;
+  list-style-position: inside !important;
+  padding-left: 2em !important;
+  margin-left: 1em !important;
+  display: block !important;
+  color: #222 !important;
+}
+
+.tinymce-content ul {
+  list-style-type: disc !important;
+}
+.tinymce-content ol {
+  list-style-type: decimal !important;
+}
+.tinymce-content li {
+  display: list-item !important;
+  margin-bottom: .5em !important;
+}
+.tinymce-content blockquote {
+  border-left: 4px solid #ccc !important;
+  margin: 1em 0 !important;
+  padding: 0.5em 1em !important;
+  color: #666 !important;
+  background: #f9f9f9 !important;
+}
+
+.tinymce-content table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  margin-bottom: 1em !important;
+}
+
+.tinymce-content th,
+.tinymce-content td {
+  border: 1px solid #ccc !important;
+  padding: 0.5em !important;
+  color: #222 !important;
+}

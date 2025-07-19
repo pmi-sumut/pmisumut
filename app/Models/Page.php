@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\User;
 use App\Models\Visitor;
+use App\Helpers\CmsAsset;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -24,6 +25,7 @@ class Page extends Model
         'title',
         'image',
         'slug',
+        'route',
         'content'
     ];
 
@@ -36,4 +38,18 @@ class Page extends Model
     {
         return $this->hasMany(Visitor::class, 'page_id', 'id')->count();
     }
+
+
+    public function getContentDisplayAttribute()
+    {
+        return preg_replace_callback(
+            '/src="\/?(storage\/pages\/images\/[^"]+)"/',
+            function ($matches) {
+                $relativePath = str_replace('storage/', '', $matches[1]);
+                return 'src="' . CmsAsset::url($relativePath) . '"';
+            },
+            $this->content
+        );
+    }
+
 }

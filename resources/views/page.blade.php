@@ -1,9 +1,8 @@
 @extends('layouts.main')
 @section('seo')
   <link href="{{ asset('assets/css/module-css/page-title.css') }}" rel="stylesheet">
-  <link href="{{ asset('assets/css/module-css/blog-sidebar.css') }}" rel="stylesheet">
-  <link href="{{ asset('assets/css/module-css/blog-details.css') }}" rel="stylesheet">
-  <link href="{{ asset('assets/css/module-css/subscribe.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/css/module-css/custom-pages.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/css/module-css/content.min.css') }}" rel="stylesheet">
 @endsection
 
 @section('content')
@@ -12,7 +11,7 @@
     <div class="auto-container">
         <div class="content-box">
             <ul class="bread-crumb">
-                <li><a href="index-2.html">{{ $page }}</a></li>
+                <li>{{ $page }}</li>
                 <li>{{ $title }}</li>
             </ul>
             <h1>{{ $title }}</h1>
@@ -25,9 +24,9 @@
     </div>
   </section>
 
-  <section class="service-style-five pt_120 pb_120">
+  <section class="py-5">
       <div class="auto-container">
-          <div>{!! $pages->content !!}</div>
+        <div class="tinymce-content">{!! $pages->content_display !!}</div>
       </div>
   </section>
 

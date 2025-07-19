@@ -58,11 +58,13 @@
                         </div>
                         <div class="widget-content">
                             <ul class="links-list clearfix">
-                                <li><a href="https://mis.pmi.or.id">MIS PMI</a></li>
-                                <li><a href="https://siamo.pmi.or.id">SIAMO</a></li>
-                                <li><a href="https://pmer.pmi.or.id">PMER</a></li>
-                                <li><a href="https://ayodonor.pmi.or.id">Ayodonor</a></li>
-                                <li><a href="https://humanis.web.id">HUMANIS</a></li>
+                                <li><a href="https://pmi.or.id" target="_blank">PMI Pusat</a></li>
+                                <li><a href="https://mis.pmi.or.id" target="_blank">MIS PMI</a></li>
+                                <li><a href="https://siamo.pmi.or.id" target="_blank">SIAMO</a></li>
+                                <li><a href="https://pmer.pmi.or.id" target="_blank">PMER</a></li>
+                                <li><a href="https://sikap.pmi.or.id" target="_blank">SIKAP</a></li>
+                                <li><a href="https://ayodonor.pmi.or.id" target="_blank">Ayodonor</a></li>
+                                <li><a href="https://humanis.web.id" target="_blank">HUMANIS</a></li>
                             </ul>
                         </div>
                     </div>

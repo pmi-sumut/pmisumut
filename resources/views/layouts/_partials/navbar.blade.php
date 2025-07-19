@@ -54,28 +54,32 @@
                             <ul class="navigation clearfix">
                                 <li><a href="/">Beranda</a></li> 
                                 @foreach($menus as $menu)
-                                  <li @if($menu->subMenus->isNotEmpty()) class="dropdown" @endif>
-                                    <a href="{{ $menu->url }}" @if($menu->is_blank) target="_blank" @endif>
-                                      {{ $menu->name }}
-                                    </a>
-                                    @if($menu->subMenus->isNotEmpty())
-                                      <ul>
-                                        @foreach($menu->subMenus as $subMenu)
-                                          <li><a href="{{ $subMenu->url }}" @if($subMenu->is_blank) target="_blank" @endif>{{ $subMenu->name }}</a></li>
-                                        @endforeach
-                                      </ul>
-                                    @endif
-                                  </li>
+                                    <li @if($menu->subMenus->isNotEmpty()) class="dropdown" @endif>
+                                        <a href="{{ $menu->url }}" @if($menu->is_blank) target="_blank" @endif>
+                                            {{ $menu->name }}
+                                        </a>
+                                        @if($menu->subMenus->isNotEmpty())
+                                            <ul>
+                                                @foreach($menu->subMenus->sortBy('sort') as $subMenu)
+                                                    <li>
+                                                        <a href="{{ $subMenu->url }}" @if($subMenu->is_blank) target="_blank" @endif>
+                                                            {{ $subMenu->name }}
+                                                        </a>
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                        @endif
+                                    </li>
                                 @endforeach
                                 <li><a href="contact.html">Agenda</a></li> 
                                 <li class="dropdown">
-                                  <a href="#">Artikel</a>
-                                  <ul>
-                                    <li><a href="{{ route('artikel') }}">Semua</a></li>
-                                    @foreach ($categories as $category)
-                                      <li><a href="{{ route('artikel', ['category' => $category->slug]) }}">{{$category->title}}</a></li>
-                                    @endforeach
-                                  </ul>
+                                    <a href="#">Artikel</a>
+                                    <ul>
+                                        <li><a href="{{ route('artikel') }}">Semua</a></li>
+                                        @foreach ($categories as $category)
+                                        <li><a href="{{ route('artikel', ['category' => $category->slug]) }}">{{$category->title}}</a></li>
+                                        @endforeach
+                                    </ul>
                                 </li> 
                             </ul>
                         </div>

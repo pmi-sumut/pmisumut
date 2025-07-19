@@ -10,7 +10,7 @@
       <div class="auto-container">
         <div class="content-box">
             <ul class="bread-crumb">
-                <li><a href="index-2.html">{{ $page }}</a></li>
+                <li>{{ $page }}</li>
                 <li>{{ $title }}</li>
             </ul>
             <h1>{{ $title }}</h1>

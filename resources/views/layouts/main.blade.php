@@ -50,10 +50,30 @@
 
   <body>
     <div class="boxed_wrapper ltr">
-      <div class="page_direction">
-        <div class="demo-rtl direction_switch"><button class="rtl">RTL</button></div>
-        <div class="demo-ltr direction_switch"><button class="ltr">LTR</button></div>
+
+      <div class="chat-icon bg-transparent">
+        <button type="button" class="chat-toggler bg-transparent shadow-non">
+          <img src="{{ asset('assets/img/icon/pmi-siap.png') }}" alt="">
+        </button>
       </div>
+
+
+        <!--chat popup-->
+        <div id="chat-popup" class="chat-popup">
+            <div class="popup-inner">
+                <div class="close-chat"><i class="far fa-times"></i></div>
+                <div class="chat-form">
+                    <p>Hubungi kami jika kamu memerlukan bantuan</p>
+                    <div class="d-flex flex-column">
+                      @foreach ($services as $item)
+                        <div class="message-btn ">
+                            <a href="telp:{{$item->contact_person}}"  class="theme-btn btn-one d-flex w-100 justify-content-center my-2">{{ $item->title }}</a>
+                        </div>
+                      @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
 
       @include('layouts._partials.navbar')  
 
