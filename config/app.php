@@ -125,6 +125,7 @@ return [
 
     'aliases' => [
         'CmsAsset' => App\Helpers\CmsAsset::class,
+        'PmiService' => App\Helpers\PmiService::class,
     ],
 
 ];
