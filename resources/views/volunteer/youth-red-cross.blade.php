@@ -107,7 +107,7 @@
             error: '', // To store any error message
 
             async getMemberCount() {
-                const apiUrl = @json(PmiService::url('/siamo-service/member-count'));
+                const apiUrl = @json(PmiService::v1('/siamo-service/member-count'));
                 try {
                     const response = await fetch(apiUrl);
                     if (!response.ok) {

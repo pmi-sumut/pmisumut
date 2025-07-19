@@ -5,12 +5,12 @@ namespace App\Helpers;
 class PmiService
 {
     /**
-     * Menghasilkan URL asset CMS yang dikustom.
+     * Menghasilkan url api service pmi.
      *
      * @param string $uri
      * @return string
      */
-    public static function url(string $uri = ''): string
+    public static function v1(string $uri = ''): string
     {
         $baseUrl = config('pmi.service_url', url('/')); // default ke base URL jika belum diset
         return $baseUrl.$uri;
